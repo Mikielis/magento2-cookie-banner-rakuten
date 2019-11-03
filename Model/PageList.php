@@ -2,34 +2,27 @@
 
 namespace Mikielis\Cookie\Model;
 
-use \Magento\Cms\Model\ResourceModel\Page\CollectionFactory;
+use Magento\Cms\Model\ResourceModel\Page\CollectionFactory;
+use Magento\Framework\Data\OptionSourceInterface;
+use Mikielis\Cookie\Helper\CmsList;
 
-class PageList implements \Magento\Framework\Option\ArrayInterface
+class PageList implements OptionSourceInterface
 {
-    private $pageCollectionFactory;
+    protected $pageCollectionFactory;
+    protected $cmsList;
 
-    public function __construct(CollectionFactory $pageCollectionFactory)
+    public function __construct(CollectionFactory $pageCollectionFactory, CmsList $cmsList)
     {
         $this->pageCollectionFactory = $pageCollectionFactory;
+        $this->cmsList = $cmsList;
     }
 
     /**
      * Returns list of pages
-     *
      * @return array
      */
-    public function toOptionArray()
+    public function toOptionArray(): array
     {
-        $pageCollection = $this->pageCollectionFactory->create();
-        $pageList = array();
-
-        foreach ($pageCollection as $page) {
-            $pageList[] = [
-                'label' => $page->getTitle(),
-                'value' => $page->getIdentifier(),
-            ];
-        }
-
-        return $pageList;
+        return $this->cmsList->get($this->pageCollectionFactory->create());
     }
 }
