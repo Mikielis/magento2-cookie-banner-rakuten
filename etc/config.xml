@@ -2,11 +2,11 @@
     <default>
         <cookie>
             <functional>
-                <activation>1</activation>
+                <enable>0</enable>
                 <lifetime>3600</lifetime>
                 <close_button>
-                    <enable_close_button>0</enable_close_button>
-                    <close_button_behaviour>allowAndClose</close_button_behaviour>
+                    <enable>1</enable>
+                    <behaviour>allowAndClose</behaviour>
                 </close_button>
                 <read_more_button>
                     <enable>1</enable>
