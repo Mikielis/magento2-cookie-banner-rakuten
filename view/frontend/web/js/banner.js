@@ -8,7 +8,11 @@ define([
     $.widget('mikielis.cookie', {
         _create: function() {
             var params = this.options;
-            console.log(params);
+
+            if ($.cookie(params.cookieName) == 1) {
+                /* Required by Rakuten */
+                window.__rmcp = [1,2,3,4,5];
+            }
 
             /**
              * Click event on accept cookies button
@@ -18,6 +22,9 @@ define([
                     expiryDate = now + (params.cookieLifetime * 1000);
                 $.cookie(params.cookieName, 1, {path: '/', expires: expiryDate});
                 $(params.container).hide('slow');
+
+                /* Required by Rakuten */
+                window.__rmcp = [1,2,3,4,5];
             });
 
             /**
