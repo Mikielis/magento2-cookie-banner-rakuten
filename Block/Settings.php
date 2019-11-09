@@ -7,7 +7,7 @@ use Magento\Framework\View\Element\Template\Context;
 use Magento\Theme\Block\Html\Header\Logo;
 use Mikielis\Cookie\Helper\Data;
 
-class Cookie extends Template
+class Settings extends Template
 {
     protected $dataHelper;
 
@@ -46,7 +46,7 @@ class Cookie extends Template
      */
     public function isModuleActive()
     {
-        return (boolean) $this->dataHelper->getConfig('cookie/functional/activation');
+        return (boolean) $this->dataHelper->getConfig('mikielis_cookie/functional/enable');
     }
 
     /**
@@ -55,7 +55,7 @@ class Cookie extends Template
      */
     public function getPosition()
     {
-        return $this->dataHelper->getConfig('cookie/design/position');
+        return $this->dataHelper->getConfig('mikielis_cookie/design/position');
     }
 
     /**
@@ -64,7 +64,21 @@ class Cookie extends Template
      */
     public function getMessage()
     {
-        return $this->dataHelper->getConfig('cookie/content/message');
+        return $this->dataHelper->getConfig('mikielis_cookie/content/message');
+    }
+
+    /**
+     * Check whether the "read more" button is enabled
+     * @return boolean
+     */
+    public function isReadMoreEnabled()
+    {
+        return (bool) $this->dataHelper->getConfig('mikielis_cookie/functional/read_more_button/enable');
+    }
+
+    public function getReadMoreBehaviour()
+    {
+        return $this->dataHelper->getConfig('mikielis_cookie/functional/read_more_button/behaviour');
     }
 
     /**
@@ -73,25 +87,30 @@ class Cookie extends Template
      */
     public function getReadMoreButtonText()
     {
-        return $this->dataHelper->getConfig('cookie/content/read_more_text');
+        return $this->dataHelper->getConfig('mikielis_cookie/content/read_more_text');
     }
 
     /**
      * Get URL of webpage that should be linked by "read more" button
      * @return string
      */
-    public function getReadMoreButtonLink()
+    public function getReadMoreButtonPage()
     {
-        return $this->dataHelper->getConfig('cookie/content/read_more_link');
+        return $this->dataHelper->getConfig('mikielis_cookie/functional/read_more_button/page');
+    }
+
+    public function getReadMoreBlock()
+    {
+        return $this->dataHelper->getConfig('mikielis_cookie/functional/read_more_button/block');
     }
 
     /**
      * Get text of read more button
      * @return string
      */
-    public function getApproveButtonText()
+    public function getAcceptButtonText()
     {
-        return $this->dataHelper->getConfig('cookie/content/approve_text');
+        return $this->dataHelper->getConfig('mikielis_cookie/content/approve_text');
     }
 
     /**
@@ -104,16 +123,16 @@ class Cookie extends Template
     {
         if ($button == 'read_more') {
             if ($state == 'hover') {
-                return $this->dataHelper->getConfig('cookie/design/read_more_button/hover_color');
+                return $this->dataHelper->getConfig('mikielis_cookie/design/read_more_button/hover_color');
             }
 
-            return $this->dataHelper->getConfig('cookie/design/read_more_button/color');
+            return $this->dataHelper->getConfig('mikielis_cookie/design/read_more_button/color');
         } elseif ($button == 'approve') {
             if ($state == 'hover') {
-                return $this->dataHelper->getConfig('cookie/design/approve_button/hover_color');
+                return $this->dataHelper->getConfig('mikielis_cookie/design/approve_button/hover_color');
             }
 
-            return $this->dataHelper->getConfig('cookie/design/approve_button/color');
+            return $this->dataHelper->getConfig('mikielis_cookie/design/approve_button/color');
         }
     }
 
@@ -127,16 +146,16 @@ class Cookie extends Template
     {
         if ($button == 'read_more') {
             if ($state == 'hover') {
-                return $this->dataHelper->getConfig('cookie/design/read_more_button/hover_background');
+                return $this->dataHelper->getConfig('mikielis_cookie/design/read_more_button/hover_background');
             }
 
-            return $this->dataHelper->getConfig('cookie/design/read_more_button/background');
+            return $this->dataHelper->getConfig('mikielis_cookie/design/read_more_button/background');
         } elseif ($button == 'approve') {
             if ($state == 'hover') {
-                return $this->dataHelper->getConfig('cookie/design/approve_button/hover_background');
+                return $this->dataHelper->getConfig('mikielis_cookie/design/approve_button/hover_background');
             }
 
-            return $this->dataHelper->getConfig('cookie/design/approve_button/background');
+            return $this->dataHelper->getConfig('mikielis_cookie/design/approve_button/background');
         }
     }
 
@@ -148,9 +167,9 @@ class Cookie extends Template
     public function getButtonBorderColor($button)
     {
         if ($button == 'read_more') {
-            return $this->dataHelper->getConfig('cookie/design/read_more_button/border_color');
+            return $this->dataHelper->getConfig('mikielis_cookie/design/read_more_button/border_color');
         } elseif ($button == 'approve') {
-            return $this->dataHelper->getConfig('cookie/design/approve_button/border_color');
+            return $this->dataHelper->getConfig('mikielis_cookie/design/approve_button/border_color');
         }
     }
 
@@ -162,9 +181,9 @@ class Cookie extends Template
     public function getButtonBorderSize($button)
     {
         if ($button == 'read_more') {
-            return $this->dataHelper->getConfig('cookie/design/read_more_button/border_size');
+            return $this->dataHelper->getConfig('mikielis_cookie/design/read_more_button/border_size');
         } elseif ($button == 'approve') {
-            return $this->dataHelper->getConfig('cookie/design/approve_button/border_size');
+            return $this->dataHelper->getConfig('mikielis_cookie/design/approve_button/border_size');
         }
     }
 
@@ -174,7 +193,7 @@ class Cookie extends Template
      */
     public function getLifeTime()
     {
-        return (int) $this->dataHelper->getConfig('cookie/functional/lifetime');
+        return (int) $this->dataHelper->getConfig('mikielis_cookie/functional/lifetime');
     }
 
     /**
@@ -193,7 +212,7 @@ class Cookie extends Template
      */
     public function getReadMoreUrl()
     {
-        $url = $this->storeManager->getStore()->getBaseUrl() . $this->dataHelper->getConfig('cookie/content/read_more_link');
+        $url = $this->storeManager->getStore()->getBaseUrl() . $this->dataHelper->getConfig('mikielis_cookie/content/read_more_link');
         return $url;
     }
 
@@ -203,7 +222,7 @@ class Cookie extends Template
      */
     public function isCloseButtonEnabled()
     {
-        return (bool) $this->dataHelper->getConfig('cookie/functional/close_button/enable_close_button');
+        return (bool) $this->dataHelper->getConfig('mikielis_cookie/functional/close_button/enable_close_button');
     }
 
     /**
@@ -212,7 +231,7 @@ class Cookie extends Template
      */
     public function getCloseButtonBehaviour()
     {
-        return $this->dataHelper->getConfig('cookie/functional/close_button/close_button_behaviour');
+        return $this->dataHelper->getConfig('mikielis_cookie/functional/close_button/close_button_behaviour');
     }
 
     /**
@@ -221,7 +240,7 @@ class Cookie extends Template
      */
     public function getLogo()
     {
-        if ((bool) $this->dataHelper->getConfig('cookie/design/logo/display') === true) {
+        if ((bool) $this->dataHelper->getConfig('mikielis_cookie/design/logo/display') === true) {
             $logo = [
                 'src' => $this->logo->getLogoSrc(),
                 'alt' => $this->logo->getLogoAlt(),

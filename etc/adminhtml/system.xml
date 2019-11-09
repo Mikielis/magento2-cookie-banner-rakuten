@@ -4,7 +4,7 @@
         <tab id="mikielis" translate="label" sortOrder="10">
             <label>Mikielis</label>
         </tab>
-        <section id="cookie" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <section id="mikielis_cookie" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Cookie Compliance</label>
             <tab>mikielis</tab>
             <resource>Mikielis_Cookie::config_cookie</resource>
@@ -18,7 +18,7 @@
                 <field id="lifetime" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Cookie lifetime in seconds</label>
                     <depends>
-                        <field id="cookie/functional/enable">1</field>
+                        <field id="mikielis_cookie/functional/enable">1</field>
                     </depends>
                     <validate>validate-number</validate>
                     <comment>Cookie lifetime is set to 3600 by default</comment>
@@ -26,7 +26,7 @@
                 <group id="close_button" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Close button</label>
                     <depends>
-                        <field id="cookie/functional/enable">1</field>
+                        <field id="mikielis_cookie/functional/enable">1</field>
                     </depends>
                     <field id="enable" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Enable close button</label>
@@ -36,7 +36,7 @@
                     <field id="behaviour" translate="label comment" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Click result</label>
                         <depends>
-                            <field id="mikielis/cookie/functional/close_button/enable">1</field>
+                            <field id="mikielis_cookie/functional/close_button/enable">1</field>
                         </depends>
                         <source_model>Mikielis\Cookie\Model\CloseOptions</source_model>
                     </field>
@@ -44,7 +44,7 @@
                 <group id="read_more_button" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>"Read more" button</label>
                     <depends>
-                        <field id="cookie/functional/enable">1</field>
+                        <field id="mikielis_cookie/functional/enable">1</field>
                     </depends>
                     <field id="enable" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Enable "read more" button</label>
@@ -54,23 +54,23 @@
                     <field id="behaviour" translate="label comment" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Click result</label>
                         <depends>
-                            <field id="cookie/functional/read_more_button/enable">1</field>
+                            <field id="mikielis_cookie/functional/read_more_button/enable">1</field>
                         </depends>
                         <source_model>Mikielis\Cookie\Model\ReadMoreOptions</source_model>
                     </field>
                     <field id="page" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Link "read more" button to</label>
                         <depends>
-                            <field id="cookie/functional/read_more_button/enable">1</field>
-                            <field id="cookie/functional/read_more_button/behaviour">openPage</field>
+                            <field id="mikielis_cookie/functional/read_more_button/enable">1</field>
+                            <field id="mikielis_cookie/functional/read_more_button/behaviour">openPage</field>
                         </depends>
                         <source_model>Mikielis\Cookie\Model\PageList</source_model>
                     </field>
                     <field id="block" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Link "read more" button to</label>
                         <depends>
-                            <field id="cookie/functional/read_more_button/enable">1</field>
-                            <field id="cookie/functional/read_more_button/behaviour">openPopup</field>
+                            <field id="mikielis_cookie/functional/read_more_button/enable">1</field>
+                            <field id="mikielis_cookie/functional/read_more_button/behaviour">openPopup</field>
                         </depends>
                         <source_model>Mikielis\Cookie\Model\BlockList</source_model>
                         <comment>Block ID (from Content => Blocks)</comment>
@@ -80,7 +80,7 @@
             <group id="content" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Content</label>
                 <depends>
-                    <field id="cookie/functional/enable">1</field>
+                    <field id="mikielis_cookie/functional/enable">1</field>
                 </depends>
                 <field id="message" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Banner text</label>
@@ -88,7 +88,7 @@
                 <field id="read_more_text" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Read more</label>
                     <depends>
-                        <field id="cookie/functional/read_more_button/enable">1</field>
+                        <field id="mikielis_cookie/functional/read_more_button/enable">1</field>
                     </depends>
                 </field>
                 <field id="approve_text" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -98,7 +98,7 @@
             <group id="design" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Design Settings</label>
                 <depends>
-                    <field id="cookie/functional/enable">1</field>
+                    <field id="mikielis_cookie/functional/enable">1</field>
                 </depends>
                 <field id="position" translate="label comment" type="radios" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Message position</label>
@@ -110,12 +110,13 @@
                     <field id="display" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Display logo above text</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>Logo dimensions are specified in Content => Design => Configuration => [Your theme] => Head HTML</comment>
                     </field>
                 </group>
                 <group id="read_more_button" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>The "read more" button</label>
                     <depends>
-                        <field id="cookie/functional/read_more_button/enable">1</field>
+                        <field id="mikielis_cookie/functional/read_more_button/enable">1</field>
                     </depends>
                     <field id="color" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Font color</label>

@@ -2,7 +2,7 @@
 var config = {
     map: {
         "*": {
-            cookieCompliance: "Mikielis_Cookie/js/cookie"
+            cookieCompliance: "Mikielis_Cookie/js/banner"
         }
     }
 };

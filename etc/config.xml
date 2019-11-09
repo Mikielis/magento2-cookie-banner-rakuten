@@ -1,6 +1,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <cookie>
+        <mikielis_cookie>
             <functional>
                 <enable>0</enable>
                 <lifetime>3600</lifetime>
@@ -41,6 +41,6 @@
                     <hover_color>FFFFFF</hover_color>
                 </approve_button>
             </design>
-        </cookie>
+        </mikielis_cookie>
     </default>
 </config>
