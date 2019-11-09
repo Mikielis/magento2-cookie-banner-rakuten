@@ -14,7 +14,7 @@ class ReadMoreOptions implements \Magento\Framework\Option\ArrayInterface
         ];
 
         $options[] = [
-            'value' => 'openPopup',
+            'value' => 'theSamePage',
             'label' => __('Open pop-up')
         ];
 

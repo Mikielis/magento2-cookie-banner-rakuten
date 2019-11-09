@@ -26,7 +26,7 @@ define([
             $(params.readMoreButton).click(function() {
                 if (params.readMoreButtonBehaviour == 'openPage') {
                     window.document.location.href = params.readMoreButtonPage;
-                } else if (params.readMoreButtonBehaviour == 'openPopup') {
+                } else if (params.readMoreButtonBehaviour == 'theSamePage') {
                     $.ajax({
                         showLoader: true,
                         url: '/mikielisCookie/block/block',

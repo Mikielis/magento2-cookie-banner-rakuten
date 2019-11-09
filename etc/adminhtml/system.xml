@@ -70,7 +70,7 @@
                         <label>Link "read more" button to</label>
                         <depends>
                             <field id="mikielis_cookie/functional/read_more_button/enable">1</field>
-                            <field id="mikielis_cookie/functional/read_more_button/behaviour">openPopup</field>
+                            <field id="mikielis_cookie/functional/read_more_button/behaviour">theSamePage</field>
                         </depends>
                         <source_model>Mikielis\Cookie\Model\BlockList</source_model>
                         <comment>Block ID (from Content => Blocks)</comment>
