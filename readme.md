@@ -1,47 +1,86 @@
 
-# EU cookie law compliance, Magento 2 extension
+# Magento 2 Cookie Notice
 
-This Magento 2 extension adds a notice telling visitors that your website uses cookies.<br />
-Tbe bar can be displayed in two different positions and it contains a short sentence, three buttons - more info, allow cookies and close button in top right corner.<br />
-Optionally can be diplayed store’s logo above the sentence.
+This Magento 2 extension adds a notice telling visitors that your store uses cookies.<br /><br />
+Tbe banner can be displayed in two different positions.<br /><br />
+It contains a short sentence, three buttons - read more, accept cookies and close button (x).<br />
+It is possible to display store logo above the sentence.<br /><br />
 
-In your Magento admin you will be able to set following settings:
+The banner is customizable, below are listed available settings.
 
 > Functional settings:
 
-- enable/disable module
-- cookie lifetime (in seconds)
-- show/hide close button
-- change behaviour of the close button (hide bar or hide bar and allow cookies)
+- enable/disable banner
+- cookie lifetime in seconds
+
+- Close button
+  - enable/disable button
+  - possible click results: hide banner and accept cookies / just hide the banner
+  
+- Read more button
+  - enable/disable button
+  - possible click results: open linked page / display content of static block below the buttons (loaded in real-time with enabled loader)
 
 > Design settings:
 
-- message position (top or bottom)
-- logo (it can be displayed above the sentence or it can be hidden)
-- “more info” and “allow” buttons: font and background colours, border size and colour, font and background colours when a cursor hovers over them.
+- banner position - top or bottom area of each page
+- logo - if enabled, it will be displayed above the sentence
+- customisations to read more and accept cookies buttons
+  - select font color (separately for hover state)
+  - select background color (separately for hover state)
+  - border width and color
 
 > Content:
 
-- add/change sentence
-- “more info” button text
-- “more info” button URL
-- “allow” button text
+- editable sentence
+- editable text of “read more” and “accept cookies" buttons
+
+<br /><br />
+
+ > Rakuten integration
+
+I have installed this extension as a part of the integration with Rakuten (rakuten.com) - see Rakuten's documentation part where window.__rmcp = [1,2,3,4,5] is required.
+However, the extension can be installed in any case.
 
 # Screenshots
 
-Store:
-<img src="https://user-images.githubusercontent.com/7327076/49171482-edec2c00-f33e-11e8-8a15-11e85d84b9d1.png"><br />
+<br />
 
-Magento admin:
-<img src="https://user-images.githubusercontent.com/7327076/49171481-edec2c00-f33e-11e8-8f2f-b7921b39b020.png"><br />
+Store:<br /><br />
+
+![magento-2-cookie-banner](https://user-images.githubusercontent.com/7327076/68532163-74183d00-031a-11ea-8945-5b358dd39603.png)
+
+<br /><br />
+
+![magento-2-cookie-banner-2](https://user-images.githubusercontent.com/7327076/68532167-7c707800-031a-11ea-9861-014d8b849653.png)
+
+<br /><br />
+
+![magento-2-cookie-banner-3](https://user-images.githubusercontent.com/7327076/68532166-7c707800-031a-11ea-9af9-82d0d5e96e1f.png)
+
+<br /><br />
+
+![magento-2-cookie-banner-4](https://user-images.githubusercontent.com/7327076/68532170-7d090e80-031a-11ea-875d-dccd462256f2.png)
+
+<br /><br />
+
+Magento 2 admin:
+
+<br /><br />
+
+![magento-2-cookie-banner-5](https://user-images.githubusercontent.com/7327076/68532169-7c707800-031a-11ea-923d-e9074098e282.png)
+
+<br /><br />
 
 # Installation
 
 Pull in the extension through Composer:
 
 ```php
-composer require "mikielis/magento2-module-cookie-compliance:*"
+composer require "mikielis/magento2-module-cookie-banner-rakuten:*"
 ```
 
-Learn more on how to install Magento 2 extensions from the command line and follow listed steps:
-https://devdocs.magento.com/guides/v2.2/comp-mgr/install-extensions.html
+OR<br />
+
+download zipped extension and add its files to [magento root directory]/app/code/Mikielis/Cookie directory and follow listed steps from official guide:
+https://devdocs.magento.com/guides/v2.3/comp-mgr/install-extensions.html

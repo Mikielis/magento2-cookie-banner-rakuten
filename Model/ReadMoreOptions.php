@@ -15,7 +15,7 @@ class ReadMoreOptions implements \Magento\Framework\Option\ArrayInterface
 
         $options[] = [
             'value' => 'theSamePage',
-            'label' => __('Open pop-up')
+            'label' => __('Display block content below read more and accept cookies buttons')
         ];
 
         return $options;
