@@ -91,7 +91,7 @@
                         <field id="mikielis_cookie/functional/read_more_button/enable">1</field>
                     </depends>
                 </field>
-                <field id="approve_text" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="accept_text" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Allow cookies</label>
                 </field>
             </group>
@@ -110,7 +110,7 @@
                     <field id="display" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Display logo above text</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                        <comment>Logo dimensions are specified in Content => Design => Configuration => [Your theme] => Head HTML</comment>
+                        <comment>Logo dimensions are specified in Content => Design => Configuration => [Your theme] => Header</comment>
                     </field>
                 </group>
                 <group id="read_more_button" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -154,7 +154,7 @@
                         <comment>Example: CCCCCC</comment>
                     </field>
                 </group>
-                <group id="approve_button" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                <group id="accept_button" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>The "allow cookies" button</label>
                     <field id="color" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Font color</label>

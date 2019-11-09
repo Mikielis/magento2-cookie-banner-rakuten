@@ -8,6 +8,7 @@ define([
     $.widget('mikielis.cookie', {
         _create: function() {
             var params = this.options;
+            console.log(params);
 
             /**
              * Click event on accept cookies button
@@ -20,10 +21,24 @@ define([
             });
 
             /**
-             * Read more button, click event
+             * Click event on read more button
              */
             $(params.readMoreButton).click(function() {
-                window.document.location.href = params.readMoreUrl;
+                if (params.readMoreButtonBehaviour == 'openPage') {
+                    window.document.location.href = params.readMoreButtonPage;
+                } else if (params.readMoreButtonBehaviour == 'openPopup') {
+                    $.ajax({
+                        showLoader: true,
+                        url: '/mikielisCookie/block/block',
+                        data: {block: params.readMoreButtonBlock},
+                        type: 'POST',
+                        dataType: 'json'
+                    }).done(function (data) {
+                        if (data.block) {
+                            $('#' + params.blockContent).html(data.block).show();
+                        }
+                    });
+                }
             });
 
             /**
@@ -33,7 +48,6 @@ define([
                /** Allow cookie and close information - an equals functionality to allow button */
                if (params.closeButtonBehaviour == 'allowAndClose') {
                    $(params.acceptButton).trigger('click');
-                   
                /** Only hide div with cookie compliance content */
                } else if (params.closeButtonBehaviour == 'close') {
                    $(params.container).hide('slow');

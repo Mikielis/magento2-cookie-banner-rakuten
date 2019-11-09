@@ -99,7 +99,7 @@ class Settings extends Template
         return $this->dataHelper->getConfig('mikielis_cookie/functional/read_more_button/page');
     }
 
-    public function getReadMoreBlock()
+    public function getReadMoreButtonBlock()
     {
         return $this->dataHelper->getConfig('mikielis_cookie/functional/read_more_button/block');
     }
@@ -110,7 +110,7 @@ class Settings extends Template
      */
     public function getAcceptButtonText()
     {
-        return $this->dataHelper->getConfig('mikielis_cookie/content/approve_text');
+        return $this->dataHelper->getConfig('mikielis_cookie/content/accept_text');
     }
 
     /**
@@ -127,12 +127,12 @@ class Settings extends Template
             }
 
             return $this->dataHelper->getConfig('mikielis_cookie/design/read_more_button/color');
-        } elseif ($button == 'approve') {
+        } elseif ($button == 'accept') {
             if ($state == 'hover') {
-                return $this->dataHelper->getConfig('mikielis_cookie/design/approve_button/hover_color');
+                return $this->dataHelper->getConfig('mikielis_cookie/design/accept_button/hover_color');
             }
 
-            return $this->dataHelper->getConfig('mikielis_cookie/design/approve_button/color');
+            return $this->dataHelper->getConfig('mikielis_cookie/design/accept_button/color');
         }
     }
 
@@ -150,12 +150,12 @@ class Settings extends Template
             }
 
             return $this->dataHelper->getConfig('mikielis_cookie/design/read_more_button/background');
-        } elseif ($button == 'approve') {
+        } elseif ($button == 'accept') {
             if ($state == 'hover') {
-                return $this->dataHelper->getConfig('mikielis_cookie/design/approve_button/hover_background');
+                return $this->dataHelper->getConfig('mikielis_cookie/design/accept_button/hover_background');
             }
 
-            return $this->dataHelper->getConfig('mikielis_cookie/design/approve_button/background');
+            return $this->dataHelper->getConfig('mikielis_cookie/design/accept_button/background');
         }
     }
 
@@ -168,8 +168,8 @@ class Settings extends Template
     {
         if ($button == 'read_more') {
             return $this->dataHelper->getConfig('mikielis_cookie/design/read_more_button/border_color');
-        } elseif ($button == 'approve') {
-            return $this->dataHelper->getConfig('mikielis_cookie/design/approve_button/border_color');
+        } elseif ($button == 'accept') {
+            return $this->dataHelper->getConfig('mikielis_cookie/design/accept_button/border_color');
         }
     }
 
@@ -182,8 +182,8 @@ class Settings extends Template
     {
         if ($button == 'read_more') {
             return $this->dataHelper->getConfig('mikielis_cookie/design/read_more_button/border_size');
-        } elseif ($button == 'approve') {
-            return $this->dataHelper->getConfig('mikielis_cookie/design/approve_button/border_size');
+        } elseif ($button == 'accept') {
+            return $this->dataHelper->getConfig('mikielis_cookie/design/accept_button/border_size');
         }
     }
 
@@ -206,23 +206,12 @@ class Settings extends Template
     }
 
     /**
-     * Get page URL that explain cookies policy
-     * @return mixed
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     */
-    public function getReadMoreUrl()
-    {
-        $url = $this->storeManager->getStore()->getBaseUrl() . $this->dataHelper->getConfig('mikielis_cookie/content/read_more_link');
-        return $url;
-    }
-
-    /**
      * Get info whether close button is enabled or disabled
      * @return boolean
      */
     public function isCloseButtonEnabled()
     {
-        return (bool) $this->dataHelper->getConfig('mikielis_cookie/functional/close_button/enable_close_button');
+        return (bool) $this->dataHelper->getConfig('mikielis_cookie/functional/close_button/enable');
     }
 
     /**
@@ -231,7 +220,7 @@ class Settings extends Template
      */
     public function getCloseButtonBehaviour()
     {
-        return $this->dataHelper->getConfig('mikielis_cookie/functional/close_button/close_button_behaviour');
+        return $this->dataHelper->getConfig('mikielis_cookie/functional/close_button/behaviour');
     }
 
     /**

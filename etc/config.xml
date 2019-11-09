@@ -17,7 +17,7 @@
             <content>
                 <message>This website uses cookies to improve your experience. Cookies help us remember you and show you more things we think you’ll like.</message>
                 <read_more_text>Read more</read_more_text>
-                <approve_text>Accept cookies</approve_text>
+                <accept_text>Accept cookies</accept_text>
             </content>
             <design>
                 <position>top</position>
@@ -32,14 +32,14 @@
                     <hover_background>CCCCCC</hover_background>
                     <hover_color>000000</hover_color>
                 </read_more_button>
-                <approve_button>
+                <accept_button>
                     <background>EEEEEE</background>
                     <border_color>5C9732</border_color>
                     <color>666666</color>
                     <border_size>1</border_size>
                     <hover_background>5C9732</hover_background>
                     <hover_color>FFFFFF</hover_color>
-                </approve_button>
+                </accept_button>
             </design>
         </mikielis_cookie>
     </default>

@@ -29,7 +29,7 @@
                 <button style="
                         color: #<?php echo trim($block->getButtonColor('read_more')); ?>;
                         background: #<?php echo trim($block->getButtonBackground('read_more')); ?>;
-                        border-size: <?php echo trim($block->getButtonBorderSize('read_more')); ?>;
+                        border-width: <?php echo trim($block->getButtonBorderSize('read_more')); ?>px;
                         border-color: #<?php echo trim($block->getButtonBorderColor('read_more')); ?>;"
                         id="mikielis-cookie-read-more">
                     <?php echo $block->getReadMoreButtonText(); ?>
@@ -38,14 +38,15 @@
 
             <!-- Accept cookies button -->
             <button style="
-                    color: #<?php echo trim($block->getButtonColor('approve')); ?>;
-                    background: #<?php echo trim($block->getButtonBackground('approve')); ?>;
-                    border-size: <?php echo trim($block->getButtonBorderSize('approve')); ?>;
-                    border-color: #<?php echo trim($block->getButtonBorderColor('approve')); ?>;"
-                    id="mikielis-cookie-approve">
+                    color: #<?php echo trim($block->getButtonColor('accept')); ?>;
+                    background: #<?php echo trim($block->getButtonBackground('accept')); ?>;
+                    border-width: <?php echo trim($block->getButtonBorderSize('accept')); ?>px;
+                    border-color: #<?php echo trim($block->getButtonBorderColor('accept')); ?>;"
+                    id="mikielis-cookie-accept">
                 <?php echo $block->getAcceptButtonText(); ?>
             </button>
         </div>
+        <div stype="display: none" id="mikielis-cookie-block-content" class="block-text"></div>
     </div>
     
     <script type="text/x-magento-init">
@@ -53,11 +54,11 @@
         "#mikielis-cookie": {
             "cookieCompliance": {
                 "container": "#mikielis-cookie",
-                "acceptButton": "#mikielis-cookie-approve",
-                "acceptButtonColor": "<?php echo trim($block->getButtonColor('approve')); ?>",
-                "acceptButtonBackground": "<?php echo trim($block->getButtonBackground('approve')); ?>",
-                "acceptButtonHoverColor": "<?php echo trim($block->getButtonColor('approve', 'hover')); ?>",
-                "acceptButtonHoverBackground": "<?php echo trim($block->getButtonBackground('approve', 'hover')); ?>",
+                "acceptButton": "#mikielis-cookie-accept",
+                "acceptButtonColor": "<?php echo trim($block->getButtonColor('accept')); ?>",
+                "acceptButtonBackground": "<?php echo trim($block->getButtonBackground('accept')); ?>",
+                "acceptButtonHoverColor": "<?php echo trim($block->getButtonColor('accept', 'hover')); ?>",
+                "acceptButtonHoverBackground": "<?php echo trim($block->getButtonBackground('accept', 'hover')); ?>",
                 "readMoreButton": "#mikielis-cookie-read-more",
                 "readMoreButtonColor": "<?php echo trim($block->getButtonColor('read_more')); ?>",
                 "readMoreButtonBackground": "<?php echo trim($block->getButtonBackground('read_more')); ?>",
@@ -65,11 +66,12 @@
                 "readMoreButtonHoverBackground": "<?php echo trim($block->getButtonBackground('read_more', 'hover')); ?>",
                 "cookieLifetime": <?php echo $block->getLifetime(); ?>,
                 "cookieName": "<?php echo $block->getCookieName(); ?>",
-                "readMoreBehaviour": "<?php echo $block->getReadMoreBehaviour(); ?>",
-                "readMorePage": "<?php echo $block->getReadMorePage(); ?>",
-                "readMoreBlock": "<?php echo $block->getReadMoreBlock(); ?>",
+                "readMoreButtonBehaviour": "<?php echo $block->getReadMoreBehaviour(); ?>",
+                "readMoreButtonPage": "<?php echo $block->getReadMoreButtonPage(); ?>",
+                "readMoreButtonBlock": "<?php echo $block->getReadMoreButtonBlock(); ?>",
                 "closeButton": "#mikielis-cookie .close",
-                "closeButtonBehaviour": "<?php echo $block->getCloseButtonBehaviour(); ?>"
+                "closeButtonBehaviour": "<?php echo $block->getCloseButtonBehaviour(); ?>",
+                "blockContent": "mikielis-cookie-block-content"
             }
         }
     }

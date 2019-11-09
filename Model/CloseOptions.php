@@ -10,7 +10,7 @@ class CloseOptions implements \Magento\Framework\Option\ArrayInterface
 
         $options[] = [
             'value' => 'allowAndClose',
-            'label' => __('Allow and close')
+            'label' => __('Accept and close')
         ];
 
         $options[] = [
