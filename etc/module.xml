@@ -4,6 +4,7 @@
     <module name="Mikielis_Cookie" setup_version="1.0.0">
         <sequence>
             <module name="Magento_Theme"/>
+            <module name="Magento_Cms"/>
         </sequence>
     </module>
 </config>
